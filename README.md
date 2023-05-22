@@ -25,7 +25,7 @@ cd $HOME/dev
 git clone https://github.com/robipozzi/robipozzi-kafka
 ```
 
-Activate a Kafka cluster to interact with; instructions are provided to install Kafka locally or instantiate it on a Red Hat OpenShift cluster.
+Activate a Kafka cluster to interact with; instructions are provided to install Kafka locally or instantiate it on Confluent or Red Hat OpenShift.
 
 ### Run Kafka cluster on local environment
 Installing Kafka locally for development and test is quite straightforward, please refer to https://kafka.apache.org/quickstart for instructions.
@@ -52,7 +52,16 @@ You are now ready to play with your local Kafka cluster.
 [TODO]
 
 ### Create and delete Kafka topics
-[TODO]
+Kafka command line tools allow to interact with Kafka clusters and operate many administrative tasks, like creating, deleting and describing topics.
+
+Convenient scripts are provided to 
+
+* Create a topic: Open a terminal and run **[create-topic.sh](create-topic.sh)**
+```
+cd $HOME/dev/robipozzi-kafka
+./create-topic.sh
+```
+
 
 ## Nodejs examples
 [TODO]
