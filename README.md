@@ -4,7 +4,7 @@
     - [Run Kafka cluster on local environment](#run-Kafka-cluster-on-local-environment)
     - [Run Kafka cluster on Confluent](#run-Kafka-cluster-on-confluent)
     - [Run Kafka cluster on Red Hat OpenShift](#run-Kafka-cluster-on-red-hat-openshift)
-    - [Create and delete Kafka topics](#create-delete-and-describe-kafka-topics)
+    - [Create, delete and describe Kafka topics](#create-delete-and-describe-kafka-topics)
 - [Nodejs examples](#nodejs-examples)
     - [Temperature simulation](#temperature-simulation)
     - [NPM Slack Notifier](#npm-slack-notifier)
@@ -46,7 +46,24 @@ cd $HOME/dev/robipozzi-kafka/deployments/local
 You are now ready to play with your local Kafka cluster.
 
 ### Run Kafka cluster on Confluent
-[TODO]
+Confluent (https://www.confluent.io/) is a technology company that designs and develops data platform which helps organizations harness business value from stream data. 
+
+It provides the Confluent Cloud platform (https://confluent.cloud/), that allows to create Kafka clusters in a Cloud environment. Once you signup to Confluent Cloud, you will receive $400 credit to use the platform.
+
+![](img/welcome-confluent-cloud.png)
+
+Once you are in the platform you can create a Kafka cluster, choosing the Cloud provider where the cluster will be provisioned.
+
+![](img/confluent-cluster.png)
+
+To use the cluster there is just one final thing to do: create the API Key that the clients shall use to connect securely to the cluster.
+
+![](img/confluent-apikeys.png)
+
+Once everything is setup correctly as above, you can create all the topics needed by the application that shall use the cluster.
+
+![](img/confluent-topics.png)
+
 
 ### Run Kafka cluster on Red Hat OpenShift
 [TODO]
