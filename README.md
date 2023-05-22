@@ -52,16 +52,37 @@ You are now ready to play with your local Kafka cluster.
 [TODO]
 
 ### Create and delete Kafka topics
-Kafka command line tools allow to interact with Kafka clusters and operate many administrative tasks, like creating, deleting and describing topics.
+Kafka command line tools (available in /bin subdirectory of any local Kafka installation) allow to interact with Kafka clusters and operate many administrative tasks, like creating, deleting and describing topics.
 
-Convenient scripts are provided to 
+Currently the code made available in this repo has been developed and tested against 3 different type of Kafka clusters, i.e.: local deployment, OpenShift and Confluent. Each deployment has its own connection and configuration parameters, that are available in the **[deployment](deployment)** subdirectory.
 
-* Create a topic: Open a terminal and run **[create-topic.sh](create-topic.sh)**
+Convenient scripts are provided to:
+
+* Create a topic: open a terminal and run **[create-topic.sh](create-topic.sh)**
 ```
 cd $HOME/dev/robipozzi-kafka
 ./create-topic.sh
 ```
 
+The script lets you choose the kind of Kafka cluster deployment you want to use (local, OpenShift or Confluent) and then asks to input the name of the Kafka topic you want to create, as seen in the following figure:
+![](img/create-topic.png)
+
+The script uses **kafka-topics.sh** Kafka command line tool with the **--create** argument and the appropriate configuration parameters for the specific Kafka cluster.
+
+* Delete a topic: open a terminal and run **[delete-topic.sh](delete-topic.sh)**
+```
+cd $HOME/dev/robipozzi-kafka
+./delete-topic.sh
+```
+
+The script uses **kafka-topics.sh** Kafka command line tool with the **--delete** argument and the appropriate configuration parameters for the specific Kafka cluster.
+
+* Describe topics: open a terminal and run **[describe-topics.sh](describe-topics.sh)**
+```
+cd $HOME/dev/robipozzi-kafka
+./describe-topics.sh
+```
+The script again uses **kafka-topics.sh** Kafka command line tool with the **--describe** argument and the appropriate configuration parameters for the specific Kafka cluster, to describe the configurations of all topics defined in the cluster.
 
 ## Nodejs examples
 [TODO]
