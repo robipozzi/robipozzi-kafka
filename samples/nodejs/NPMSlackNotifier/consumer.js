@@ -1,6 +1,6 @@
 const kafka = require('./kafka');
 const { IncomingWebhook } = require('@slack/webhook');
-const slackIncomingWebhookUrl="https://hooks.slack.com/services/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";
+const slackIncomingWebhookUrl="https://hooks.slack.com/services/<>/<>/<>";
 const slack = new IncomingWebhook(slackIncomingWebhookUrl);
 const consumer = kafka.consumer({
   groupId: process.env.GROUP_ID
