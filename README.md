@@ -4,7 +4,7 @@
     - [Run Kafka cluster on local environment](#run-Kafka-cluster-on-local-environment)
     - [Run Kafka cluster on Confluent](#run-Kafka-cluster-on-confluent)
     - [Run Kafka cluster on Red Hat OpenShift](#run-Kafka-cluster-on-red-hat-openshift)
-    - [Create and delete Kafka topics](#create-and-delete-kafka-topics)
+    - [Create and delete Kafka topics](#create-delete-and-describe-kafka-topics)
 - [Nodejs examples](#nodejs-examples)
     - [Temperature simulation](#temperature-simulation)
     - [NPM Slack Notifier](#npm-slack-notifier)
@@ -51,7 +51,7 @@ You are now ready to play with your local Kafka cluster.
 ### Run Kafka cluster on Red Hat OpenShift
 [TODO]
 
-### Create and delete Kafka topics
+### Create, delete and describe Kafka topics
 Kafka command line tools (available in /bin subdirectory of any local Kafka installation) allow to interact with Kafka clusters and operate many administrative tasks, like creating, deleting and describing topics.
 
 Currently the code made available in this repo has been developed and tested against 3 different type of Kafka clusters, i.e.: local deployment, OpenShift and Confluent. Each deployment has its own connection and configuration parameters, that are available in the **[deployment](deployment)** subdirectory.
