@@ -1,4 +1,4 @@
-const { Kafka } = require('kafkajs')
+const { Kafka } = require('kafkajs');
 const config = {
     clientId: 'nodeJS-kafka-temperature-simulator',
     brokers: ['pkc-38xx2.eu-south-1.aws.confluent.cloud:9092'],

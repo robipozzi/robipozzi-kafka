@@ -131,11 +131,15 @@ Some application samples are provided to experiment with Kafka Nodejs clients.
 Temperature simulation application is made of 2 Nodejs programs:
 
 * **[temperatureSimulationProducer.js](samples/nodejs/TemperatureSimulation/temperatureSimulationProducer.js)** is Nodejs program that uses *kafkajs* Nodejs module to connect to a Kafka cluster and publish a message to *temperatures* topic.
-Connection and other application parameters are configurable in environment related modules:
-
-    * **[kafkaLocalConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaLocalConfig.js)** configuration file.
 
 * **[temperatureSimulationConsumer.js](samples/nodejs/TemperatureSimulation/temperatureSimulationConsumer.js)** is Nodejs program that uses *kafkajs* Nodejs module to connect to a Kafka cluster and consume messages from *temperatures* topic.
+
+For both Producer and Consumer connection and other application parameters are configurable in environment related modules:
+
+* **[kafkaLocalConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaLocalConfig.js)** gathers configuration parameters to connect to a local running Kafka cluster.
+* **[kafkaOpenShiftConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaOpenShiftConfig.js)** gathers configuration parameters to connect to a Kafka cluster running on OpenShift.
+* **[kafkaConfluentConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js)** gathers configuration parameters to connect to a Kafka cluster running on Confluent.
+* **[appConfig.js](samples/nodejs/TemperatureSimulation/config/appConfig.js)** gathers common configuration parameters for the application, in particular the topic name *temperatures*.
 
 ### NPM Slack Notifier
 [YET TO BE IMPLEMENTED]
