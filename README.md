@@ -133,7 +133,7 @@ Temperature simulation application is made of 2 Nodejs programs:
 * **[temperatureSimulationProducer.js](samples/nodejs/TemperatureSimulation/temperatureSimulationProducer.js)** is Nodejs program that uses *kafkajs* Nodejs module to connect to a Kafka cluster and publish a message to *temperatures* topic.
 Connection and other application parameters are configurable in environment related modules:
 
-** **[kafkaLocalConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaLocalConfig.js)** configuration file.
+    * **[kafkaLocalConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaLocalConfig.js)** configuration file.
 
 * **[temperatureSimulationConsumer.js](samples/nodejs/TemperatureSimulation/temperatureSimulationConsumer.js)** is Nodejs program that uses *kafkajs* Nodejs module to connect to a Kafka cluster and consume messages from *temperatures* topic.
 
