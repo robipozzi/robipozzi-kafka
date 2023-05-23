@@ -16,7 +16,7 @@ if (KAFKA_ENVIRONMENT == "openshift") {
 }
 if (KAFKA_ENVIRONMENT == "confluent") {
   console.log("Use Kafka on Confluent");
-  kafka = require('./config/kafkaConfluentConfig___');
+  kafka = require('./config/kafkaConfluentConfig');
 }
 console.log("Kafka connection instantiated");
 // Creating Kafka Producer
