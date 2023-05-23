@@ -5,6 +5,7 @@
     - [Run Kafka cluster on Confluent](#run-Kafka-cluster-on-confluent)
     - [Run Kafka cluster on Red Hat OpenShift](#run-Kafka-cluster-on-red-hat-openshift)
     - [Create, delete and describe Kafka topics](#create-delete-and-describe-kafka-topics)
+    - [Producers and consumers using Kafka command line tools](#producers-and-consumers-using-Kafka-command-line-tools)
 - [Nodejs examples](#nodejs-examples)
     - [Temperature simulation](#temperature-simulation)
     - [NPM Slack Notifier](#npm-slack-notifier)
@@ -82,6 +83,7 @@ cd $HOME/dev/robipozzi-kafka
 ```
 
 The script lets you choose the kind of Kafka cluster deployment you want to use (local, OpenShift or Confluent) and then asks to input the name of the Kafka topic you want to create, as seen in the following figure:
+
 ![](img/create-topic.png)
 
 The script uses **kafka-topics.sh** Kafka command line tool with the **--create** argument and the appropriate configuration parameters for the specific Kafka cluster.
@@ -101,14 +103,40 @@ cd $HOME/dev/robipozzi-kafka
 ```
 The script again uses **kafka-topics.sh** Kafka command line tool with the **--describe** argument and the appropriate configuration parameters for the specific Kafka cluster, to describe the configurations of all topics defined in the cluster.
 
+### Producers and consumers using Kafka command line tools
+Kafka is a distributed system consisting of servers and clients that communicate via a high-performance TCP network protocol. Clients allow to write distributed applications that read (consume, in Kafka terminology), write (produce, or publish, in Kafka terminology), and process streams of events in parallel.
+
+Kafka provides command line tools to create and use producers and consumers.
+
+Kafka command line tool **kafka-console-producer.sh** allows to connect to a Kafka cluster and publish messages to a specific topic. A convenient script named **test-producer.sh**, which uses *kafka-console-producer.sh*, is provided to test publishing messages to a selected Kafka topic.
+```
+cd $HOME/dev/robipozzi-kafka
+./test-producer.sh
+```
+
+Kafka command line tool **kafka-console-consumer.sh** allows to connect to a Kafka cluster and publish messages to a specific topic. A convenient script named **test-consumer.sh**, which uses *kafka-console-consumer.sh*, is provided to test reading messages from a selected Kafka topic.
+```
+cd $HOME/dev/robipozzi-kafka
+./test-consumer.sh
+```
+
 ## Nodejs examples
-[TODO]
+Some application samples are provided to experiment with Kafka Nodejs clients.
+
+* **[Temperature simulation](samples/nodejs/TemperatureSimulation/)** application simulates the behavior of a Temperature sensor, publishing temperature data to *temperatures* topic.
+
+* **[NPM Slack Notifier](samples/nodejs/NPMSlackNotifier/)** application is yet to be implemented.
 
 ### Temperature simulation
-[TODO]
+Temperature simulation application is made of 2 Nodejs programs:
+
+* **[temperatureSimulationProducer.js](samples/nodejs/TemperatureSimulation/temperatureSimulationProducer.js)** is Nodejs program that uses *kafkajs* Nodejs module to connect to a Kafka cluster and publish a message to *temperatures* topic.
+Connection and other application parameters are configurable in **[kafkaConfig.js](samples/nodejs/TemperatureSimulation/config/kafkaConfig.js)** configuration file.
+
+* **[temperatureSimulationConsumer.js](samples/nodejs/TemperatureSimulation/temperatureSimulationConsumer.js)** is Nodejs program that uses *kafkajs* Nodejs module to connect to a Kafka cluster and consume messages from *temperatures* topic.
 
 ### NPM Slack Notifier
-[TODO]
+[YET TO BE IMPLEMENTED]
 
 ## Python examples
 [TODO]
