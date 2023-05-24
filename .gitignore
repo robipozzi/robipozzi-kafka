@@ -8,3 +8,5 @@ deployments/confluent/config.properties
 samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
 samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
 samples/nodejs/TemperatureSimulation/config/kafkaOpenShiftConfig.js
+samples/python/kafka-python/config/configuration-confluent.ini
+samples/python/kafka-python/config/configuration-openshift.ini

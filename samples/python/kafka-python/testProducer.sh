@@ -3,7 +3,7 @@ source ../../../setenv.sh
 SCRIPT=testProducer.sh
 PLATFORM_OPTION=$1
 KAFKA_TOPIC=$2
-BOOTSTRAP_SERVER=
+KAFKA_PLATFORM=
 # ##### Variable section - END
 
 # ***** Function section - START
@@ -17,9 +17,11 @@ main()
 	fi
 
     case $PLATFORM_OPTION in
-		1)  KAFKA_BROKER=$BOOTSTRAP_SERVER TOPIC=$KAFKA_TOPIC python3 testProducer.py
+		1)  KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 testProducer.py
 			;;
-        2)  KAFKA_BROKER=$BOOTSTRAP_SERVER SSL=true TOPIC=$KAFKA_TOPIC python3 testProducer.py
+        2)  KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 testProducer.py
+            ;;
+        3)  KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 testProducer.py
             ;;
 		*) 	printf "\n${red}No valid option selected${end}\n"
 			printSelectPlatform
@@ -32,6 +34,7 @@ printSelectPlatform()
 	echo ${grn}Select Kafka cluster run platform : ${end}
     echo "${grn}1. Localhost${end}"
     echo "${grn}2. Openshift (RHOKS cluster)${end}"
+    echo "${grn}3. Confluent${end}"
 	read PLATFORM_OPTION
 	setBootstrapServer
 }
@@ -39,9 +42,11 @@ printSelectPlatform()
 setBootstrapServer()
 {
 	case $PLATFORM_OPTION in
-		1)  BOOTSTRAP_SERVER=$LOCALHOST_KAFKA_BOOTSTRAP
+		1)  KAFKA_PLATFORM="local"
 			;;
-        2)  BOOTSTRAP_SERVER=$OPENSHIFT_KAFKA_BOOTSTRAP
+        2)  KAFKA_PLATFORM="openshift"
+            ;;
+        3)  KAFKA_PLATFORM="confluent"
             ;;
 		*) 	printf "\n${red}No valid option selected${end}\n"
 			printSelectPlatform
