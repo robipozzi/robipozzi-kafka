@@ -6,7 +6,6 @@ python/kafka-python/tls/cert_and_key.p12
 python/kafka-python/tls/key.pem
 deployments/confluent/config.properties
 samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
-samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
 samples/nodejs/TemperatureSimulation/config/kafkaOpenShiftConfig.js
 samples/python/TemperatureSimulation/config/configuration-confluent.ini
 samples/python/TemperatureSimulation/config/configuration-openshift.ini
