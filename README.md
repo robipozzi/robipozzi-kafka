@@ -10,7 +10,7 @@
     - [Temperature simulation](#temperature-simulation)
     - [NPM Slack Notifier](#npm-slack-notifier)
 - [Python examples](#python-examples)
-    - [Temperature simulation](#temperature-simulation)
+    - [Temperature simulation with Python](#temperature-simulation-with-python)
     
 ## Introduction
 This repository contains code and scripts to experiment on Kafka technology. See https://kafka.apache.org/intro for a general introduction to what Kafka is, how it works and which use cases is most suited for.
