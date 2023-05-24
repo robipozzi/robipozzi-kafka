@@ -150,9 +150,9 @@ Some application samples are provided to experiment with Kafka Python clients.
 ### Temperature simulation with Python
 Temperature simulation application is made of 2 Python programs:
 
-* **[testProducer.py](samples/python/TemperatureSimulation/testProducer.py)** is a Python program that uses *confluent-kafka* Python module to connect to a Kafka cluster and publish a message to *temperatures* topic. It is conveniently launched with adequate parameters using **[testProducer.py](samples/nodejs/TemperatureSimulation/testProducer.py)**.
+* **[testProducer.py](samples/python/TemperatureSimulation/testProducer.py)** is a Python program that uses *confluent-kafka* Python module to connect to a Kafka cluster and publish a message to *temperatures* topic. It is conveniently launched with adequate parameters using **[testProducer.sh](samples/nodejs/TemperatureSimulation/testProducer.sh)**.
 
-* **[testConsumer.py](samples/python/TemperatureSimulation/testConsumer.py)** is a Python program that uses *confluent-kafka* Python module to connect to a Kafka cluster and consume messages from *temperatures* topic. It is conveniently launched with adequate parameters using **[testConsumer.py](samples/nodejs/TemperatureSimulation/testConsumer.py)**.
+* **[testConsumer.py](samples/python/TemperatureSimulation/testConsumer.py)** is a Python program that uses *confluent-kafka* Python module to connect to a Kafka cluster and consume messages from *temperatures* topic. It is conveniently launched with adequate parameters using **[testConsumer.sh](samples/nodejs/TemperatureSimulation/testConsumer.sh)**.
 
 For both Producer and Consumer connection and other application parameters are configurable in environment related modules:
 
