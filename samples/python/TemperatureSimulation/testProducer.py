@@ -27,7 +27,7 @@ topic = os.getenv('TOPIC')
 # ***** Functions - START *****
 # *****************************
 def simulate_sensor():
-    temperature = random.randint(-10, 50)
+    temperature = random.randint(20, 28)
     humidity = random.randint(0, 100)
     return humidity, temperature
 
@@ -108,7 +108,7 @@ if __name__ == '__main__':
             message = {'temperature': temperature,'humidity':humidity}
             # Convert data to JSON string
             jsonMessage = json.dumps(message)
-            producer.produce(topic, value=jsonMessage)
+            producer.produce(topic, key="sensor-data", value=jsonMessage)
             producer.flush()
             time.sleep(5)
     except KafkaException as e:
