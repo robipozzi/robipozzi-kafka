@@ -46,6 +46,9 @@ cd $HOME/dev/robipozzi-kafka/deployments/local
 
 You are now ready to play with your local Kafka cluster.
 
+#### Enable security on Kafka cluster in local environment
+[TODO]
+
 ### Run Kafka cluster on Confluent
 Confluent (https://www.confluent.io/) is a technology company that designs and develops data platform which helps organizations harness business value from stream data. 
 
