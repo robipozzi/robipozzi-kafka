@@ -9,3 +9,4 @@ samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
 samples/nodejs/TemperatureSimulation/config/kafkaOpenShiftConfig.js
 samples/python/TemperatureSimulation/config/configuration-confluent.ini
 samples/python/TemperatureSimulation/config/configuration-openshift.ini
+deployments/local/security/tls/kafka.server.keystore.jks

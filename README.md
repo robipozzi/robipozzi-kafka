@@ -48,7 +48,15 @@ cd $HOME/dev/robipozzi-kafka/deployments/local
 You are now ready to play with your local Kafka cluster.
 
 #### Enable security on Kafka cluster in local environment
-[TODO]
+Apache Kafka allows clients to use SSL for encryption of traffic as well as authentication. 
+Here following there are instructions on how to set up PKI infrastructure, use it to create certificates and configure Kafka to use these.
+
+1. Generate SSL key and certificate for each Kafka broker
+The first step of deploying one or more brokers with SSL support is to generate a public/private keypair for every server. Since Kafka expects all keys and certificates to be stored in keystores we will use Java's keytool command for this task.
+
+A convenient script **[generateSSLKey.sh](deployments/local/security/generateSSLKey.sh)**, with default values, is provided to generate the keystore that contains the private and public keys.
+
+[*** TODO ***]
 
 ### Run Kafka cluster on Confluent
 Confluent (https://www.confluent.io/) is a technology company that designs and develops data platform which helps organizations harness business value from stream data. 
