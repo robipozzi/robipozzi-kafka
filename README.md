@@ -2,6 +2,7 @@
 - [Introduction](#introduction)
 - [Setup and run Kafka](#setup-and-run-kafka)
     - [Run Kafka cluster on local environment](#run-Kafka-cluster-on-local-environment)
+        - [Enable security on Kafka cluster in local environment](#Enable-security-on-Kafka-cluster-in-local-environment)
     - [Run Kafka cluster on Confluent](#run-Kafka-cluster-on-confluent)
     - [Run Kafka cluster on Red Hat OpenShift](#run-Kafka-cluster-on-red-hat-openshift)
     - [Create, delete and describe Kafka topics](#create-delete-and-describe-kafka-topics)
