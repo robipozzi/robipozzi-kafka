@@ -17,9 +17,16 @@ LOCALHOST_KAFKA_BOOTSTRAP=localhost:9092
 OPENSHIFT_KAFKA_BOOTSTRAP=robipozzi-kafka-kafka-tls-bootstrap-openshift-operators.robipozzi-rhocp-420022-3c76f4d12b7fe02f9cab56e64bec3e29-0000.eu-de.containers.appdomain.cloud:443
 CONFLUENT_KAFKA_BOOTSTRAP=pkc-38xx2.eu-south-1.aws.confluent.cloud:9092
 ## Kafka Security
-DEFAULT_KEYSTORE_DIR=$HOME/dev/robipozzi-kafka/deployments/local/security/tls
+DEFAULT_KEYSTORE_DIR=$HOME/dev/robipozzi-kafka/deployments/local/security/ssl
 DEFAULT_KEYSTORE=kafka.server.keystore.jks
-DEFAULT_VALIDITY=365
+DEFAULT_KEYSTORE_ALIAS=kafka
+DEFAULT_CSR=kafka.server.csr
+DEFAULT_VALIDITY=1000
+DEFAULT_CA_CSR=CA_CSR.csr
+DEFAULT_CACERT=CAcert.pem
+DEFAULT_CA_PRIVATE_KEY=CA_private_key.key
+DEFAULT_TRUSTSTORE=kafka.client.truststore.jks
+DEFAULT_SERVER_CERTIFICATE=kafka.server.cert.pem
 ## Topics for Kafka Quickstart Events
 QUICKSTART_INPUT_TOPIC=quickstart-events
 QUICKSTART_CONNECT_TOPIC=connect-test

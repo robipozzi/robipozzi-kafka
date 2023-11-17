@@ -49,17 +49,43 @@ You are now ready to play with your local Kafka cluster.
 
 #### Enable security on Kafka cluster in local environment
 Apache Kafka allows clients to use SSL for encryption of traffic as well as authentication. 
-Here following there are instructions on how to set up PKI infrastructure, use it to create certificates and configure Kafka to use these.
 
-* **Generate SSL key and certificate for each Kafka broker**
+The steps needed to enable security are schematically reported here below
+
+1. **Generate private key and certificate for each Kafka broker**
+2. **Create your own CA**
+3. **Add CA to client truststore**
+4. **Sign the certificate with the CA**
+
+Here following there are step by step instructions on how to set up PKI infrastructure, use it to create certificates and configure Kafka to use these.
+
+1. **Generate private key and certificate for each Kafka broker**
 
 The first step of deploying one or more brokers with SSL support is to generate a public/private keypair for every server. Since Kafka expects all keys and certificates to be stored in keystores we will use Java's keytool command for this task.
 
-Two convenient scripts, with default values, are provided to generate the keystore that contains the private and public keys and the certificate signing request.
-* **[generateSSLKey.sh](deployments/local/security/generateSSLKey.sh)** - generates private and public keys
-* **[generateSSLCertificate.sh](deployments/local/security/generateSSLCertificate.sh)** - generates certificate signing request
+The second step is to obtain a certificate that can be used with the private key that was just created: a certificate signing request needs to be created. This signing request, when signed by a trusted CA results in the actual certificate which can then be installed in the keystore and used for authentication purposes. 
 
-[*** TODO ***]
+With this we have created a private key pair which can already be used to encrypt traffic and a certificate signing request, which is the basis for creating a certificate. To add authentication capabilities this signing request needs to be signed by a trusted authority (a *Certification Authority*, usually indicated as *CA*), which will be created in the next step.
+
+2. **Create your own CA**
+
+A certificate authority (CA) is responsible for signing certificates. When setting up a production cluster in a corporate environment these certificates would usually be signed by an external trusted CA, in our case we will go the fastest way and be our own Certificate Authority.
+
+3. **Add CA to client truststore**
+
+Once CA has been generated, the next step is to add it to the **clients' truststore** so that the clients can trust the CA.
+
+4. **Sign the certificate with the CA**
+
+Finally, we can sign the certificate with the CA and import both the certificate of the CA and the signed certificate into the keystore.
+
+A convenient script, **[createSSL.sh](deployments/local/security/createSSL.sh)**, with default values, is provided to choose which one of the tasks above to run, or decide to run all of them at once.
+
+**Kafka Server SSL configuration**
+
+**Kafka clients SSL configuration**
+
+**[TODO]**
 
 ### Run Kafka cluster on Confluent
 Confluent (https://www.confluent.io/) is a technology company that designs and develops data platform which helps organizations harness business value from stream data. 
