@@ -2,6 +2,7 @@
 deployments/confluent/config-confluent.properties
 deployments/local/security/ssl
 deployments/local/security/config.properties
+deployments/openshift/config.properties
 deployments/openshift/tls/ca.crt
 deployments/openshift/tls/truststore.jks
 samples/config-local.properties
@@ -15,4 +16,4 @@ samples/python/TemperatureSimulation/config/configuration-local.ini
 samples/python/TemperatureSimulation/config/configuration-openshift.ini
 samples/python/TemperatureSimulation/tls
 
-deployments/openshift/config.properties
+
