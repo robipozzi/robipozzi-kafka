@@ -7,7 +7,6 @@ deployments/openshift/tls/ca.crt
 deployments/openshift/tls/truststore.jks
 samples/config-local.properties
 samples/config-openshift.properties
-
 samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
 samples/nodejs/TemperatureSimulation/config/kafkaOpenShiftConfig.js
 samples/python/TemperatureSimulation/config/configuration-confluent.ini
@@ -15,5 +14,3 @@ samples/python/TemperatureSimulation/config/configuration-local-ssl.ini
 samples/python/TemperatureSimulation/config/configuration-local.ini
 samples/python/TemperatureSimulation/config/configuration-openshift.ini
 samples/python/TemperatureSimulation/tls
-
-
