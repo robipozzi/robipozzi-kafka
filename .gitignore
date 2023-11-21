@@ -1,5 +1,6 @@
 *node_modules
 deployments/confluent/config-confluent.properties
+deployments/confluent/config-confluent.properties
 deployments/local/security/ssl
 deployments/local/security/config.properties
 deployments/openshift/tls/ca.crt
@@ -14,3 +15,4 @@ samples/python/TemperatureSimulation/config/configuration-local-ssl.ini
 samples/python/TemperatureSimulation/config/configuration-local.ini
 samples/python/TemperatureSimulation/config/configuration-openshift.ini
 samples/python/TemperatureSimulation/tls
+
