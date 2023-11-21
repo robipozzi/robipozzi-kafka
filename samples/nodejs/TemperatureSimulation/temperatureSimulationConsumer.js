@@ -10,6 +10,10 @@ if (KAFKA_ENVIRONMENT == "local") {
   console.log("Use Kafka on local");
   kafka = require('./config/kafkaLocalConfig');
 }
+if (KAFKA_ENVIRONMENT == "local-ssl") {
+  console.log("Use Kafka on local with SSL enabled");
+  kafka = require('./config/kafkaLocalSSLConfig');
+}
 if (KAFKA_ENVIRONMENT == "openshift") {
   console.log("Use Kafka on OpenShift");
   kafka = require('./config/kafkaOpenShiftConfig');

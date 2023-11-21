@@ -8,7 +8,10 @@ deployments/openshift/tls/truststore.jks
 samples/config-local.properties
 samples/config-openshift.properties
 samples/nodejs/TemperatureSimulation/config/kafkaConfluentConfig.js
+samples/nodejs/TemperatureSimulation/config/kafkaLocalConfig.js
+samples/nodejs/TemperatureSimulation/config/kafkaLocalSSLConfig.js
 samples/nodejs/TemperatureSimulation/config/kafkaOpenShiftConfig.js
+samples/nodejs/TemperatureSimulation/config/tls
 samples/python/TemperatureSimulation/config/configuration-confluent.ini
 samples/python/TemperatureSimulation/config/configuration-local-ssl.ini
 samples/python/TemperatureSimulation/config/configuration-local.ini
