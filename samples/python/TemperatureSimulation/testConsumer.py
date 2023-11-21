@@ -13,8 +13,6 @@ configurationFile = None
 kafkaBrokers = None
 consumer = None
 topic = None
-caRootLocation='tls/CARoot.pem'
-password='password'
 
 # ***** Get environment variables
 kafkaEnv = os.getenv('KAFKA_ENVIRONMENT')
@@ -46,6 +44,8 @@ if __name__ == '__main__':
         sys.exit();
     if (kafkaEnv == "local") :
         configurationFile = "config/configuration-local.ini"
+    elif (kafkaEnv == "local-ssl") :
+        configurationFile = "config/configuration-local-ssl.ini"
     elif (kafkaEnv == "openshift") :
         configurationFile = "config/configuration-openshift.ini"
     elif (kafkaEnv == "confluent") :
@@ -67,7 +67,26 @@ if __name__ == '__main__':
             'group.id': "temperatures",
             'enable.auto.commit': False,
             'auto.offset.reset': 'earliest',
-            'error_cb': error_cb})
+            'error_cb': error_cb
+        })
+    elif (kafkaEnv == "local-ssl") :
+        print(Style.BRIGHT + 'Connecting to Kafka Broker ' + kafkaBrokers + ' with SSL')
+        caRootLocation = kafkaConfig["caRootLocation"]
+        password = kafkaConfig["password"]
+        print(Style.BRIGHT + 'Using CA Root location : ' + caRootLocation + ' ')
+        print(Style.BRIGHT + 'Truststore password : ' + password + ' ')
+        consumer = Consumer({
+            'bootstrap.servers': kafkaBrokers,
+            'group.id': "temperatures",
+            'enable.auto.commit': False,
+            'auto.offset.reset': 'earliest',
+            'security.protocol': 'SSL',
+            'ssl.ca.location': caRootLocation,
+            #'ssl.certificate.location': certLocation,
+            #'ssl.key.location':keyLocation,
+            'ssl.key.password' : password,
+            'error_cb': error_cb
+        })
     elif (kafkaEnv == "openshift") :
         print(Style.BRIGHT + 'Connecting to Kafka Broker ' + kafkaBrokers + ' with SSL')
         error_cb("NO OPENSHIFT CONNECTION IS CONFIGURED")

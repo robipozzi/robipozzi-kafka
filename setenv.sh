@@ -14,17 +14,17 @@ coffee3="${coffee} ${coffee} ${coffee}"
 KAFKA_HOME=/Users/robertopozzi/software/kafka_2.13-3.4.0
 ## Kafka Bootstrap Servers
 LOCALHOST_KAFKA_BOOTSTRAP=localhost:9092
+LOCALHOST_SSL_KAFKA_BOOTSTRAP=localhost:9093
 OPENSHIFT_KAFKA_BOOTSTRAP=robipozzi-kafka-kafka-tls-bootstrap-openshift-operators.robipozzi-rhocp-420022-3c76f4d12b7fe02f9cab56e64bec3e29-0000.eu-de.containers.appdomain.cloud:443
 CONFLUENT_KAFKA_BOOTSTRAP=pkc-38xx2.eu-south-1.aws.confluent.cloud:9092
-## Kafka Security
-DEFAULT_KEYSTORE_DIR=$HOME/dev/robipozzi-kafka/deployments/local/security/ssl
+## Kafka Security settings
+DEFAULT_SSL_DIR=$HOME/dev/robipozzi-kafka/deployments/local/security/ssl
 DEFAULT_KEYSTORE=kafka.server.keystore.jks
-DEFAULT_KEYSTORE_ALIAS=kafka
-DEFAULT_CSR=kafka.server.csr
+DEFAULT_KEYSTORE_ALIAS=localhost
 DEFAULT_VALIDITY=1000
-DEFAULT_CA_CSR=CA_CSR.csr
-DEFAULT_CACERT=CAcert.pem
-DEFAULT_CA_PRIVATE_KEY=CA_private_key.key
+DEFAULT_CSR=kafka.server.csr
+DEFAULT_CACERT=cacert.pem
+DEFAULT_CA_ALIAS=CARoot
 DEFAULT_TRUSTSTORE=kafka.client.truststore.jks
 DEFAULT_SERVER_CERTIFICATE=kafka.server.cert.pem
 ## Topics for Kafka Quickstart Events

@@ -1,38 +1,32 @@
-source ./setenv.sh
+source ../../../setenv.sh
 # ##### Variable section - START
-SCRIPT=delete-topic.sh
+SCRIPT=create-topic.sh
 DESCRIBE_TOPICS_SCRIPT=describe-topics.sh
 PLATFORM_OPTION=$1
-KAFKA_TOPIC=$2
 BOOTSTRAP_SERVER=
-TOPIC=
 # ##### Variable section - END
 
 # ***** Function section - START
 ########################
-## Delete Kafka Topic ##
+## Create Kafka Topic ##
 ########################
 main()
 {
 	if [ -z $PLATFORM_OPTION ]; then 
         printSelectPlatform
     fi
-	if [ -z $KAFKA_TOPIC ]; then 
-		#printHelp
-		inputKafkaTopic
-	fi
-	DELETE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --delete --topic $KAFKA_TOPIC"	
+	CREATE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --create --replication-factor 1 --partitions 1 --topic $TEMPERATURES_TOPIC"
     if [ $PLATFORM_OPTION == "2" ]; then
-		DELETE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --delete --topic $KAFKA_TOPIC --command-config ./deployments/local/security/config.properties"
+        CREATE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --create --replication-factor 1 --partitions 1 --topic $TEMPERATURES_TOPIC --command-config ./deployments/local/security/config.properties"
     fi
 	if [ $PLATFORM_OPTION == "3" ]; then
-		DELETE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --delete --topic $KAFKA_TOPIC --command-config ./deployments/openshift/config.properties"
+        CREATE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --create --replication-factor 1 --partitions 1 --topic $TEMPERATURES_TOPIC --command-config ./deployments/openshift/config.properties"
     fi
 	if [ $PLATFORM_OPTION == "4" ]; then
-		DELETE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --delete --topic $KAFKA_TOPIC --command-config deployments/confluent/config.properties"
+        CREATE_TOPIC_CMD_RUN="$KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server $BOOTSTRAP_SERVER --create --replication-factor 3 --partitions 1 --topic $TEMPERATURES_TOPIC --command-config deployments/confluent/config.properties"
     fi
-	echo ${cyn}Deleting Topic:${end} ${grn}$KAFKA_TOPIC${end}
-	$DELETE_TOPIC_CMD_RUN
+	echo ${cyn}Creating Topic:${end} ${grn}$KAFKA_TOPIC${end}
+	$CREATE_TOPIC_CMD_RUN
 	source $DESCRIBE_TOPICS_SCRIPT $PLATFORM_OPTION
 }
 
@@ -49,7 +43,7 @@ printHelp()
 	printf "${cyn}	2. Localhost (SSL enabled)${end}\n"
 	printf "${cyn}	3. Openshift${end}\n"
 	printf "${cyn}	4. Confluent${end}\n"
-	printf "${cyn}- <KAFKA_TOPIC> is a string representing the Kafka topic to be deleted${end}\n"
+	printf "${cyn}- <KAFKA_TOPIC> is a string representing the Kafka topic to be created${end}\n"
 }
 
 printSelectPlatform()
@@ -78,22 +72,6 @@ setBootstrapServer()
 			printSelectPlatform
 			;;
 	esac
-}
-
-inputKafkaTopic()
-{
-	echo ${grn}Input Kafka Topic : ${end}
-	read TOPIC
-	setKafkaTopic
-}
-
-setKafkaTopic()
-{  
-	if [ -z $TOPIC ]; then
-		echo ${red}No Kafka topic${end}
-		inputKafkaTopic
-	fi
-	KAFKA_TOPIC=$TOPIC
 }
 # ***** Function section - END
 
