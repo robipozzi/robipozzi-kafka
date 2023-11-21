@@ -15,3 +15,4 @@ samples/python/TemperatureSimulation/config/configuration-local.ini
 samples/python/TemperatureSimulation/config/configuration-openshift.ini
 samples/python/TemperatureSimulation/tls
 
+deployments/openshift/config.properties
