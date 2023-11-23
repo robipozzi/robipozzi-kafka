@@ -1,6 +1,6 @@
 source ../../../setenv.sh
 # ##### Variable section - START
-SCRIPT=testProducer.sh
+SCRIPT=runKafkaConsumer.sh
 PLATFORM_OPTION=$1
 KAFKA_TOPIC=$2
 KAFKA_PLATFORM=
@@ -16,7 +16,7 @@ main()
 		inputKafkaTopic
 	fi
 
-    KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 testProducer.py
+    KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 runConsumer.py
 }
 
 printSelectPlatform()
