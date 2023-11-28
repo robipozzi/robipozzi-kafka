@@ -16,7 +16,7 @@ main()
 		inputKafkaTopic
 	fi
 
-    KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 runProducer.py
+    KAFKA_ENVIRONMENT=$KAFKA_PLATFORM TOPIC=$KAFKA_TOPIC python3 runKafkaProducer.py
 }
 
 printSelectPlatform()
